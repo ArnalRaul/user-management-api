@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.usermanagement.app.service.SecurityService;
 
 @RestController
-public class CustomerApi {
+@RequestMapping(value="/password" )
+public class PasswordApi {
 
 	@Autowired
 	SecurityService securityService;
 	
-	@RequestMapping(value="/customer" , method=RequestMethod.GET)
+	@RequestMapping(value="/encode" , method=RequestMethod.GET)
 	public String getCustomerPassWord(@RequestParam("pass") String password) {
 		
 		return securityService.encodePassword(password);

@@ -10,14 +10,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @EnableWebSecurity
-public class ApiSecurity extends WebSecurityConfigurerAdapter {
+public class ApiSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	private final UserDetailsService userDetailsService;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-	public static final String SIGN_UP_URL = "/customer";
+	public static final String SIGN_UP_URL = "/password/encode";
 
-	public ApiSecurity(UserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+	public ApiSecurityConfiguration(UserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.userDetailsService = userDetailsService;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
