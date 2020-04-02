@@ -1,6 +1,5 @@
-package com.usermanagement.security;
+package com.usermanagement.app.security;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,23 +15,20 @@ public class ApiSecurity extends WebSecurityConfigurerAdapter {
 	private final UserDetailsService userDetailsService;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-	public static final String SIGN_UP_URL = "localhost:8080/customer";
+	public static final String SIGN_UP_URL = "/customer";
 
 	public ApiSecurity(UserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.userDetailsService = userDetailsService;
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
-	@Bean
-	 public BCryptPasswordEncoder bCryptPasswordEncoder() {
-	  return new BCryptPasswordEncoder();
-	 }
+	
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 	.cors().and()
 	.csrf().disable()
-	.authorizeRequests().antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll();
+	.authorizeRequests().antMatchers(HttpMethod.GET, SIGN_UP_URL).permitAll();
 	}
 
 	@Override

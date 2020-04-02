@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.usermanagement.entity.Customer;
+import com.usermanagement.app.entity.Customer;
 
 @SpringBootApplication
 //@RestController
@@ -19,6 +19,10 @@ public class ApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
 	}
+	@Bean
+	 public BCryptPasswordEncoder bCryptPasswordEncoder() {
+	  return new BCryptPasswordEncoder();
+	 }
 //	@RequestMapping(value="/greeting" , method=RequestMethod.GET)
 //	public Customer sayHello() {
 //		return new Customer(1, "lcoao", "asse");

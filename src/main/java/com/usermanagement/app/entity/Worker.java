@@ -1,4 +1,4 @@
-package com.usermanagement.entity;
+package com.usermanagement.app.entity;
 
 import java.util.Date;
 

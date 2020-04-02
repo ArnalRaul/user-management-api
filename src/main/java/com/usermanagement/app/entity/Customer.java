@@ -1,4 +1,4 @@
-package com.usermanagement.entity;
+package com.usermanagement.app.entity;
 
 
 import java.util.Date;
@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
@@ -50,7 +51,6 @@ public class Customer {
 	private Date createdAt;
 	
 	@Column(name="worker_id")
-	@ManyToOne
 	private String workerId;
 	
 	

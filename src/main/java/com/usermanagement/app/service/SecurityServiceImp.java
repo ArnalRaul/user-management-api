@@ -1,4 +1,4 @@
-package com.usermanagement.service;
+package com.usermanagement.app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 class SecurityServiceImp implements SecurityService {
-	
 	@Autowired
     private  BCryptPasswordEncoder bCryptPasswordEncoder;
 
